@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?><!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".CreationEntrainement">-->
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controler.CreationEntrainement">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/creation_save"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="30dp"
+            android:onClick="sauvegarderEntrainement"
+            app:layout_constraintRight_toLeftOf="@id/creation_play"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/save" />
+
+        <ImageView
+            android:id="@+id/creation_play"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:onClick="lancerEntrainement"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sneaker" />
+
+        <LinearLayout
+            android:id="@+id/creation_firstLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_save">
+
+            <TextView
+                android:id="@+id/creation_nomTitre"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Nom"
+                android:textColor="@color/colorAccent"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/creation_nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Débutant"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/creation_divider1"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/creation_firstLinear" />
+
+        <LinearLayout
+            android:id="@+id/creation_secondLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_firstLinear">
+
+
+            <TextView
+                android:id="@+id/creation_preparationTitre"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:text="Préparation"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/creation_preparation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="sec"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/creation_divider2"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/creation_secondLinear"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/creation_thirdLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_secondLinear">
+
+            <TextView
+                android:id="@+id/creation_sequenceTitre"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Séquence"
+                android:textColor="@color/colorAccent"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/creation_sequence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toRightOf="@id/creation_sequenceTitre"
+                app:layout_constraintTop_toBottomOf="@id/creation_divider2" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/creation_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="Cycle"
+            android:textSize="25dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_thirdLinear" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/creation_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:maxHeight="200dp"
+            app:layout_constraintBottom_toTopOf="@+id/creation_ajouterTravail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_cycle" />
+
+
+        <Button
+            android:id="@+id/creation_ajouterTravail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Ajouter travail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_recyclerView" />
+
+        <Button
+            android:id="@+id/creation_ajouterRepos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Ajouter repos"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_ajouterTravail" />
+
+        <LinearLayout
+            android:id="@+id/creation_fourthLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creation_ajouterRepos">
+
+
+            <TextView
+                android:id="@+id/creation_reposLongTitre"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:text="Repos long"
+                android:textColor="@color/colorPrimary"
+
+                android:textSize="25dp"/>
+
+            <EditText
+                android:id="@+id/creation_reposLong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="sec"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
